@@ -1,24 +1,25 @@
 from re import X
+
+#Creates the list for the buckets!
 with open('pails.in') as fin:
-	buck1, buck2, order = map(int, fin.readline().split())
- 
-#print(buck1, buck2, order)
+	X, Y, M = map(int, fin.readline().split())
 
-outvar = 0
-#outvar should be the final value output
+#Sets the initial output variable
+output = 0
 
-for first in range(order + 1): # this checks all numbers from 0 -> 77
-	#print(buck1 * first)
-	x = buck1 * first
-	if x > order:
+for first in range(M + 1): #This will check all the numbers from 0 to 77 as mentioned in the starter code
+	x = X * first
+	if x > M:
 		break
 	
-	for second in range(order + 1):
-		current = (buck1*first) + (buck2*second)
-		if current > order:
+ #This section will make sure we aren't overflowing any pails.
+	for second in range(M + 1):
+		current = (X*first) + (Y*second)
+		if current > M:
 			break
-		#print(current)
-		outvar = max(outvar, current)
+		output = max(output, current)
 
-#print(outvar)
-print(outvar, file=open('pails.out', 'w'))
+#Prints the output variable into the output file!
+print(output, file=open('pails.out', 'w'))
+
+#Note: I just used the code we did in class and was given online as starter code, but changed a few variables to make more sense in my head.
