@@ -17,7 +17,7 @@ topRight = b2 >= y2 and a2 >= x2
 bottomRight = a2 >= x2 and b1 <= y1
 bottomLeft = b1 <= y1 and a1 <= x1
 
-#Determines does all of the 
+#Determines an addition of all of the conditions aboce
 corner_num = sum([topLeft, topRight, bottomRight, bottomLeft])
 
 #These if and elif statements essentially compare every top and bottom corner with another to determine which corners are covered using the great than or less than statements above. 
@@ -26,19 +26,22 @@ corner_num = sum([topLeft, topRight, bottomRight, bottomLeft])
 if bottomLeft and topRight:
 	fout.write(str(0))
 
-#
+#determines if the cow sign does anything to cover
 elif corner_num in [0, 1]:
 	fout.write(str(abs(x2 - x1) * abs(y2 - y1)))
 
-#Determines that if the bottom right and top right corners 
+#Determines if the right side of the lawnmower sign is covered 
 elif bottomRight and topRight:
 	fout.write(str(abs(y2 - y1) * abs(x2 - a2)))
 
+#Determines if the Left side is covered
 elif bottomLeft and topLeft:
 	fout.write(str(abs(y2 - y1) * abs(x2 - a2)))
 
+#determines if top is covered
 elif topRight and topLeft:
 	fout.write(str(abs(x2 - x1) * abs(b1 - y1)))
-
+ 
+#Determines if bottom is covered
 elif bottomRight and bottomLeft:
 	fout.write(str(abs(x2 - x1) * abs(b1 - y1)))
